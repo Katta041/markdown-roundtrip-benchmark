@@ -1,0 +1,1705 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-30T19:43:22.270Z",
+    "mode": "full",
+    "node": "26.0.0",
+    "platform": "darwin 25.4.0 arm64",
+    "cpu": "Apple M5",
+    "engines": [
+      {
+        "id": "remark",
+        "name": "remark (unified + gfm, frontmatter, math)",
+        "approach": "Parse to a syntax tree (mdast), serialize with remark-stringify.",
+        "usedBy": "MDX and many docs and CMS toolchains; Milkdown parses and serializes through remark.",
+        "packages": {
+          "unified": "11.0.5",
+          "remark-parse": "11.0.0",
+          "remark-stringify": "11.0.0",
+          "remark-gfm": "4.0.1",
+          "remark-frontmatter": "5.0.0",
+          "remark-math": "6.0.0"
+        }
+      },
+      {
+        "id": "prosemirror-markdown",
+        "name": "prosemirror-markdown",
+        "approach": "Parse into a ProseMirror document (markdown-it), serialize with the default serializer.",
+        "usedBy": "The markdown module of ProseMirror, the base of many rich-text editors.",
+        "packages": {
+          "prosemirror-markdown": "1.13.8"
+        }
+      },
+      {
+        "id": "turndown",
+        "name": "marked -> HTML -> turndown",
+        "approach": "Render to HTML (marked, GFM), convert the HTML back to markdown (turndown + GFM plugin).",
+        "usedBy": "Editors that keep HTML as the document and convert back to markdown on save or paste.",
+        "packages": {
+          "marked": "18.0.14",
+          "turndown": "7.2.4",
+          "turndown-plugin-gfm": "1.0.2"
+        }
+      },
+      {
+        "id": "milkdown",
+        "name": "Milkdown 7 (commonmark + gfm presets)",
+        "approach": "Load into the WYSIWYG editor (ProseMirror, in jsdom), read back with getMarkdown().",
+        "usedBy": "Milkdown and its Crepe editor, and apps built on them.",
+        "packages": {
+          "@milkdown/kit": "7.22.2"
+        }
+      },
+      {
+        "id": "tiptap",
+        "name": "Tiptap 3 + @tiptap/markdown",
+        "approach": "Load markdown into the editor (ProseMirror, in jsdom), read back with editor.getMarkdown().",
+        "usedBy": "Tiptap-based editors in many web apps.",
+        "packages": {
+          "@tiptap/core": "3.31.3",
+          "@tiptap/markdown": "3.31.3",
+          "@tiptap/starter-kit": "3.31.3",
+          "@tiptap/extension-table": "3.31.3",
+          "@tiptap/extension-list": "3.31.3"
+        }
+      },
+      {
+        "id": "codemirror-naive",
+        "name": "CodeMirror 6, naive save (doc.toString)",
+        "approach": "Load the text into a CodeMirror 6 state with default settings and save state.doc.toString().",
+        "usedBy": "Source editors built on CodeMirror 6. Real apps may configure line separators; this is the default behaviour.",
+        "packages": {
+          "@codemirror/state": "6.7.6"
+        }
+      },
+      {
+        "id": "patch-on-save",
+        "name": "CodeMirror 6 + patch-on-save (reference)",
+        "approach": "Keep the original bytes; on save, apply only the edited ranges to them (reference/patch-on-save.mjs).",
+        "usedBy": "Reference technique in this repository.",
+        "packages": {
+          "@codemirror/state": "6.7.6"
+        }
+      }
+    ],
+    "totalSeconds": 158.7
+  },
+  "roundtrip": [
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "remark",
+      "ms": 19,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 163,
+      "linesChanged": 53,
+      "pctChanged": 32.5,
+      "bytesIn": 5160,
+      "bytesOut": 5643,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 167,
+        "cr": 0
+      },
+      "wordsLost": 3,
+      "wordsLostExamples": [
+        "nbsp",
+        "mdash"
+      ]
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "prosemirror-markdown",
+      "ms": 6,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 163,
+      "linesChanged": 74,
+      "pctChanged": 45.4,
+      "bytesIn": 5160,
+      "bytesOut": 5092,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 137,
+        "cr": 0
+      },
+      "wordsLost": 7,
+      "wordsLostExamples": [
+        "nbsp",
+        "mdash",
+        "owasp",
+        "err"
+      ]
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "turndown",
+      "ms": 26,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 163,
+      "linesChanged": 73,
+      "pctChanged": 44.8,
+      "bytesIn": 5160,
+      "bytesOut": 5048,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 155,
+        "cr": 0
+      },
+      "wordsLost": 11,
+      "wordsLostExamples": [
+        "nbsp",
+        "details",
+        "x",
+        "mdash",
+        "summary",
+        "owasp"
+      ]
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "milkdown",
+      "ms": 33,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 163,
+      "linesChanged": 59,
+      "pctChanged": 36.2,
+      "bytesIn": 5160,
+      "bytesOut": 5634,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 166,
+        "cr": 0
+      },
+      "wordsLost": 7,
+      "wordsLostExamples": [
+        "nbsp",
+        "mdash",
+        "owasp",
+        "err"
+      ]
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "tiptap",
+      "ms": 47,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 163,
+      "linesChanged": 63,
+      "pctChanged": 38.7,
+      "bytesIn": 5160,
+      "bytesOut": 5736,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 167,
+        "cr": 0
+      },
+      "wordsLost": 7,
+      "wordsLostExamples": [
+        "details",
+        "summary",
+        "owasp",
+        "err"
+      ]
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "codemirror-naive",
+      "ms": 2,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 163,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 5160,
+      "bytesOut": 5160,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "engine": "patch-on-save",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 163,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 5160,
+      "bytesOut": 5160,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "remark",
+      "ms": 6,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 115,
+      "linesChanged": 102,
+      "pctChanged": 88.7,
+      "bytesIn": 3762,
+      "bytesOut": 4040,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 13,
+        "lf": 103,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "prosemirror-markdown",
+      "ms": 2,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 115,
+      "linesChanged": 115,
+      "pctChanged": 100,
+      "bytesIn": 3762,
+      "bytesOut": 3664,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 102,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "turndown",
+      "ms": 25,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 115,
+      "linesChanged": 115,
+      "pctChanged": 100,
+      "bytesIn": 3762,
+      "bytesOut": 3412,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 96,
+        "cr": 0
+      },
+      "wordsLost": 30,
+      "wordsLostExamples": [
+        "4",
+        "summary",
+        "1",
+        "high",
+        "medium",
+        "2"
+      ]
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "milkdown",
+      "ms": 13,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 115,
+      "linesChanged": 102,
+      "pctChanged": 88.7,
+      "bytesIn": 3762,
+      "bytesOut": 4040,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 13,
+        "lf": 117,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "tiptap",
+      "ms": 21,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 115,
+      "linesChanged": 115,
+      "pctChanged": 100,
+      "bytesIn": 3762,
+      "bytesOut": 4040,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 117,
+        "cr": 0
+      },
+      "wordsLost": 6,
+      "wordsLostExamples": [
+        "summary",
+        "details"
+      ]
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "codemirror-naive",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 115,
+      "linesChanged": 115,
+      "pctChanged": 100,
+      "bytesIn": 3762,
+      "bytesOut": 3647,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 115,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "engine": "patch-on-save",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 115,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 3762,
+      "bytesOut": 3762,
+      "eolIn": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "remark",
+      "ms": 5,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 71,
+      "linesChanged": 46,
+      "pctChanged": 64.8,
+      "bytesIn": 2908,
+      "bytesOut": 3688,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 71,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "prosemirror-markdown",
+      "ms": 2,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 71,
+      "linesChanged": 46,
+      "pctChanged": 64.8,
+      "bytesIn": 2908,
+      "bytesOut": 2851,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 54,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "turndown",
+      "ms": 6,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 71,
+      "linesChanged": 45,
+      "pctChanged": 63.4,
+      "bytesIn": 2908,
+      "bytesOut": 2901,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 70,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "milkdown",
+      "ms": 13,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 71,
+      "linesChanged": 46,
+      "pctChanged": 64.8,
+      "bytesIn": 2908,
+      "bytesOut": 3688,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 71,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "tiptap",
+      "ms": 9,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 71,
+      "linesChanged": 42,
+      "pctChanged": 59.2,
+      "bytesIn": 2908,
+      "bytesOut": 3634,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 72,
+        "cr": 0
+      },
+      "wordsLost": 11,
+      "wordsLostExamples": [
+        "2026",
+        "MFA",
+        "policy",
+        "evidence",
+        "cc6",
+        "mfa"
+      ]
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "codemirror-naive",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 71,
+      "linesChanged": 24,
+      "pctChanged": 33.8,
+      "bytesIn": 2908,
+      "bytesOut": 2884,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 71,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "engine": "patch-on-save",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 71,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 2908,
+      "bytesOut": 2908,
+      "eolIn": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "remark",
+      "ms": 4,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 91,
+      "linesChanged": 13,
+      "pctChanged": 14.3,
+      "bytesIn": 2392,
+      "bytesOut": 2421,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 92,
+        "cr": 0
+      },
+      "wordsLost": 2,
+      "wordsLostExamples": [
+        "middot"
+      ]
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "prosemirror-markdown",
+      "ms": 2,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 91,
+      "linesChanged": 34,
+      "pctChanged": 37.4,
+      "bytesIn": 2392,
+      "bytesOut": 2379,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 74,
+        "cr": 0
+      },
+      "wordsLost": 4,
+      "wordsLostExamples": [
+        "middot",
+        "chart"
+      ]
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "turndown",
+      "ms": 4,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 91,
+      "linesChanged": 35,
+      "pctChanged": 38.5,
+      "bytesIn": 2392,
+      "bytesOut": 2274,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 82,
+        "cr": 0
+      },
+      "wordsLost": 24,
+      "wordsLostExamples": [
+        "middot",
+        "RPO",
+        "check",
+        "the",
+        "dl",
+        "dt"
+      ]
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "milkdown",
+      "ms": 8,
+      "engineMessages": [
+        "Expected value of type string for attribute title on type image, got null"
+      ],
+      "engineMessageCount": 1,
+      "identical": false,
+      "linesTotal": 91,
+      "linesChanged": 17,
+      "pctChanged": 18.7,
+      "bytesIn": 2392,
+      "bytesOut": 2364,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 90,
+        "cr": 0
+      },
+      "wordsLost": 10,
+      "wordsLostExamples": [
+        "middot",
+        "p99",
+        "latency",
+        "chart",
+        "img",
+        "png"
+      ]
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "tiptap",
+      "ms": 10,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 91,
+      "linesChanged": 23,
+      "pctChanged": 25.3,
+      "bytesIn": 2392,
+      "bytesOut": 2306,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "wordsLost": 26,
+      "wordsLostExamples": [
+        "p99",
+        "latency",
+        "RPO",
+        "check",
+        "the",
+        "dl"
+      ]
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "codemirror-naive",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 91,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 2392,
+      "bytesOut": 2392,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "engine": "patch-on-save",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 91,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 2392,
+      "bytesOut": 2392,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 91,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "remark",
+      "ms": 4,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 98,
+      "linesChanged": 11,
+      "pctChanged": 11.2,
+      "bytesIn": 2285,
+      "bytesOut": 2394,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "prosemirror-markdown",
+      "ms": 2,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 98,
+      "linesChanged": 7,
+      "pctChanged": 7.1,
+      "bytesIn": 2285,
+      "bytesOut": 2286,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 93,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "turndown",
+      "ms": 3,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 98,
+      "linesChanged": 16,
+      "pctChanged": 16.3,
+      "bytesIn": 2285,
+      "bytesOut": 2320,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 97,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "milkdown",
+      "ms": 6,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 98,
+      "linesChanged": 11,
+      "pctChanged": 11.2,
+      "bytesIn": 2285,
+      "bytesOut": 2394,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "tiptap",
+      "ms": 6,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 98,
+      "linesChanged": 10,
+      "pctChanged": 10.2,
+      "bytesIn": 2285,
+      "bytesOut": 2397,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 99,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "codemirror-naive",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 98,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 2285,
+      "bytesOut": 2285,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "05-llm-chat-export.md",
+      "engine": "patch-on-save",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 98,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 2285,
+      "bytesOut": 2285,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 98,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "remark",
+      "ms": 5,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 114,
+      "linesChanged": 41,
+      "pctChanged": 36,
+      "bytesIn": 1836,
+      "bytesOut": 1860,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 122,
+        "cr": 0
+      },
+      "wordsLost": 9,
+      "wordsLostExamples": [
+        "1",
+        "copy",
+        "amp",
+        "lt",
+        "gt",
+        "8212"
+      ]
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "prosemirror-markdown",
+      "ms": 2,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 114,
+      "linesChanged": 48,
+      "pctChanged": 42.1,
+      "bytesIn": 1836,
+      "bytesOut": 1761,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 109,
+        "cr": 0
+      },
+      "wordsLost": 13,
+      "wordsLostExamples": [
+        "1",
+        "copy",
+        "amp",
+        "lt",
+        "gt",
+        "8212"
+      ]
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "turndown",
+      "ms": 5,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 114,
+      "linesChanged": 55,
+      "pctChanged": 48.2,
+      "bytesIn": 1836,
+      "bytesOut": 1845,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 115,
+        "cr": 0
+      },
+      "wordsLost": 22,
+      "wordsLostExamples": [
+        "1",
+        "kbd",
+        "mark",
+        "br",
+        "sup",
+        "copy"
+      ]
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "milkdown",
+      "ms": 9,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 114,
+      "linesChanged": 44,
+      "pctChanged": 38.6,
+      "bytesIn": 1836,
+      "bytesOut": 1823,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 116,
+        "cr": 0
+      },
+      "wordsLost": 13,
+      "wordsLostExamples": [
+        "1",
+        "copy",
+        "amp",
+        "lt",
+        "gt",
+        "8212"
+      ]
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "tiptap",
+      "ms": 17,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": false,
+      "linesTotal": 114,
+      "linesChanged": 46,
+      "pctChanged": 40.4,
+      "bytesIn": 1836,
+      "bytesOut": 1881,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 119,
+        "cr": 0
+      },
+      "wordsLost": 14,
+      "wordsLostExamples": [
+        "1",
+        "kbd",
+        "mark",
+        "br",
+        "sup",
+        "r1"
+      ]
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "codemirror-naive",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 114,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 1836,
+      "bytesOut": 1836,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    },
+    {
+      "file": "06-edge-cases.md",
+      "engine": "patch-on-save",
+      "ms": 1,
+      "engineMessages": [],
+      "engineMessageCount": 0,
+      "identical": true,
+      "linesTotal": 114,
+      "linesChanged": 0,
+      "pctChanged": 0,
+      "bytesIn": 1836,
+      "bytesOut": 1836,
+      "eolIn": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolOut": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "wordsLost": 0,
+      "wordsLostExamples": []
+    }
+  ],
+  "probes": [
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "GitHub alert `> [!CAUTION]` still an alert",
+      "original": true,
+      "engines": {
+        "remark": "lost",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "lost",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "YAML frontmatter kept on line 1",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "lost",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "footnote `[^idor]` not escaped",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "footnote definitions kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "`<details>` block kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "every table still a table",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "kept",
+        "milkdown": "kept",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "01-pentest-findings.md",
+      "probe": "every task-list item still a task",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "probe": "4 `<finding severity=...>` tags kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "probe": "UTF-8 BOM kept",
+      "original": true,
+      "engines": {
+        "remark": "lost",
+        "prosemirror-markdown": "kept",
+        "turndown": "kept",
+        "milkdown": "lost",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "probe": "CRLF line endings kept",
+      "original": true,
+      "engines": {
+        "remark": "lost",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "lost",
+        "tiptap": "lost",
+        "codemirror-naive": "lost",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "probe": "evidence image kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "kept",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "probe": "8-column control matrix still a table",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "kept",
+        "milkdown": "kept",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "probe": "mixed CRLF/LF kept line by line",
+      "original": true,
+      "engines": {
+        "remark": "lost",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "lost",
+        "tiptap": "lost",
+        "codemirror-naive": "lost",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "probe": "TOML frontmatter kept on line 1",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "probe": "reviewer HTML comment kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "probe": "reference-style image kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "kept",
+        "milkdown": "lost",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "probe": "`<dl>` definition list kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "04-architecture-spec.md",
+      "probe": "`$$` math block kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "06-edge-cases.md",
+      "probe": "inline `<kbd>`, `<mark>`, `<sup>` kept",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "kept",
+        "turndown": "lost",
+        "milkdown": "kept",
+        "tiptap": "lost",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "06-edge-cases.md",
+      "probe": "pipe-less and unpadded tables still tables",
+      "original": true,
+      "engines": {
+        "remark": "kept",
+        "prosemirror-markdown": "lost",
+        "turndown": "kept",
+        "milkdown": "kept",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    },
+    {
+      "file": "06-edge-cases.md",
+      "probe": "no final newline kept",
+      "original": true,
+      "engines": {
+        "remark": "lost",
+        "prosemirror-markdown": "kept",
+        "turndown": "kept",
+        "milkdown": "lost",
+        "tiptap": "kept",
+        "codemirror-naive": "kept",
+        "patch-on-save": "kept"
+      }
+    }
+  ],
+  "edits": [
+    {
+      "file": "01-pentest-findings.md",
+      "edits": [
+        "tick a task",
+        "edit a table cell (Open to Fixed)",
+        "insert a table row",
+        "fix a word"
+      ],
+      "linesChanged": 3,
+      "linesAdded": 1,
+      "bomKept": null,
+      "eolBefore": {
+        "crlf": 0,
+        "lf": 163,
+        "cr": 0
+      },
+      "eolAfter": {
+        "crlf": 0,
+        "lf": 164,
+        "cr": 0
+      },
+      "finalNewlineKept": true,
+      "naiveSaveLinesChanged": 3
+    },
+    {
+      "file": "02-ai-code-audit.md",
+      "edits": [
+        "edit a table cell",
+        "insert a 2-line paragraph"
+      ],
+      "linesChanged": 1,
+      "linesAdded": 3,
+      "bomKept": true,
+      "eolBefore": {
+        "crlf": 115,
+        "lf": 0,
+        "cr": 0
+      },
+      "eolAfter": {
+        "crlf": 118,
+        "lf": 0,
+        "cr": 0
+      },
+      "finalNewlineKept": true,
+      "naiveSaveLinesChanged": 115
+    },
+    {
+      "file": "03-soc2-audit.md",
+      "edits": [
+        "tick a task",
+        "edit a cell in an 8-column table"
+      ],
+      "linesChanged": 2,
+      "linesAdded": 0,
+      "bomKept": null,
+      "eolBefore": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "eolAfter": {
+        "crlf": 24,
+        "lf": 47,
+        "cr": 0
+      },
+      "finalNewlineKept": true,
+      "naiveSaveLinesChanged": 25
+    },
+    {
+      "file": "06-edge-cases.md",
+      "edits": [
+        "edit a cell in a pipe-less table",
+        "edit the last line"
+      ],
+      "linesChanged": 2,
+      "linesAdded": 0,
+      "bomKept": null,
+      "eolBefore": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "eolAfter": {
+        "crlf": 0,
+        "lf": 113,
+        "cr": 0
+      },
+      "finalNewlineKept": true,
+      "naiveSaveLinesChanged": 2
+    }
+  ],
+  "perf": [
+    {
+      "operation": "lezer full parse",
+      "ms": {
+        "1MB": 58,
+        "5MB": 217,
+        "20MB": 873
+      }
+    },
+    {
+      "operation": "CodeMirror 6 state + full syntax tree",
+      "ms": {
+        "1MB": 64,
+        "5MB": 234,
+        "20MB": 892
+      }
+    },
+    {
+      "operation": "patch-on-save (open, 3 edits, save)",
+      "ms": {
+        "1MB": 9,
+        "5MB": 52,
+        "20MB": 222
+      }
+    },
+    {
+      "operation": "markdown-it render",
+      "ms": {
+        "1MB": 65,
+        "5MB": 381,
+        "20MB": 1216
+      }
+    },
+    {
+      "operation": "marked render",
+      "ms": {
+        "1MB": 51,
+        "5MB": 287,
+        "20MB": 906
+      }
+    },
+    {
+      "operation": "remark parse",
+      "ms": {
+        "1MB": 1058,
+        "5MB": 18747,
+        "20MB": "skipped"
+      }
+    },
+    {
+      "operation": "prosemirror-markdown parse",
+      "ms": {
+        "1MB": 39,
+        "5MB": 184,
+        "20MB": "skipped"
+      }
+    },
+    {
+      "operation": "Milkdown load + save",
+      "ms": {
+        "1MB": 20596,
+        "5MB": "skipped",
+        "20MB": "skipped"
+      }
+    },
+    {
+      "operation": "Tiptap load + save",
+      "ms": {
+        "1MB": 111611,
+        "5MB": "skipped",
+        "20MB": "skipped"
+      }
+    }
+  ]
+}

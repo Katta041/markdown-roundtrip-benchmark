@@ -1,0 +1,11 @@
+# Code and docs: LF everywhere.
+* text=auto eol=lf
+
+# The corpus and the saved outputs are byte-exact (CRLF, BOM, mixed endings, no
+# final newline). Git must never convert them on any platform.
+corpus/*.md -text -merge
+corpus/src/** -text -merge
+corpus/SHA256SUMS -text
+results/output/** -text -merge
+results/results.json linguist-generated=true
+results/RESULTS.md linguist-generated=true

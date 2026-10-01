@@ -1,0 +1,45 @@
+{
+  "name": "markdown-roundtrip-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible benchmark: what markdown editor engines change in your file when you open it and save with no edits.",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/Katta041/markdown-roundtrip-benchmark",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Katta041/markdown-roundtrip-benchmark.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "bench": "node bench.mjs",
+    "corpus": "node corpus/build.mjs"
+  },
+  "dependencies": {
+    "@codemirror/lang-markdown": "6.5.2",
+    "@codemirror/language": "6.12.4",
+    "@codemirror/state": "6.7.6",
+    "@lezer/markdown": "1.7.2",
+    "@milkdown/kit": "7.22.2",
+    "@tiptap/core": "3.31.3",
+    "@tiptap/extension-list": "3.31.3",
+    "@tiptap/extension-table": "3.31.3",
+    "@tiptap/markdown": "3.31.3",
+    "@tiptap/starter-kit": "3.31.3",
+    "diff": "9.0.0",
+    "jsdom": "30.1.1",
+    "markdown-it": "15.0.2",
+    "marked": "18.0.14",
+    "prosemirror-markdown": "1.13.8",
+    "remark-frontmatter": "5.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0",
+    "remark-parse": "11.0.0",
+    "remark-stringify": "11.0.0",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2",
+    "unified": "11.0.5"
+  }
+}
