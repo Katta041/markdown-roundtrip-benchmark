@@ -182,6 +182,11 @@ If an editor engine you use is missing, or a configuration is unfair to it, plea
 
 [AsItIs](https://asitis.app) is a markdown editor built on this finding. It edits in a rendered view and saves with patch-on-save, so bytes you did not change stay exactly as they were. This benchmark and its corpus are the kind of check AsItIs runs to hold itself to that.
 
+## Related
+
+- [asitis-agent-tools](https://github.com/Katta041/asitis-agent-tools): a free, read-only Claude Code plugin and MCP server that lints CLAUDE.md, AGENTS.md and SKILL.md, estimates the tokens they load per session and flags hidden instructions. Its optional guard hook warns before an agent rewrites a markdown file or changes its line endings.
+- [Steering file checker](https://asitis.app/tools/steering-file-checker): the same linter in the browser. Paste a file to check it; nothing is uploaded.
+
 ## License
 
 [MIT](LICENSE). The engines are third-party packages under their own licences, installed from npm.
